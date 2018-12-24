@@ -17,8 +17,8 @@ function login(eventBody)
     return eventBody.username === "henk" && eventBody.password === "PvG";
 }
 
-module.exports.login = (event, context) => {
-    if (login(JSON.parse(event.body))) {
+module.exports.login = (data, context) => {
+    if (login(data)) {
         return { auth: true, token: signToken(1234) };
     }
     return false;
